@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciador de Desculpas Esfarrapadas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Central de Desculpas Esfarrapadas</h1>
+      <p>Gerencie seu repertório de desculpas para qualquer imprevisto ou rolê indesejado.</p>
+    </header>
+
+    <main class="app-content">
+      <section class="card form-card">
+        <h2 id="form-title">Nova Desculpa</h2>
+        <form id="excuse-form">
+          <input type="hidden" id="excuse-id" placeholder="aaa"/>
+
+          <div class="form-group">
+            <label for="excuse-title">Título / Resumo da Desculpa</label>
+            <input type="text" id="excuse-title" placeholder="Ex: O cachorro comeu meu crachá" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="excuse-category">Categoria</label>
+              <select id="excuse-category" required>
+                <option value="" disabled selected>Selecione uma categoria...</option>
+                <option value="Família">Família</option>
+                <option value="Amigos">Amigos</option>
+                <option value="Festa">Festa / Rolê</option>
+                <option value="Trabalho">Trabalho / Estudo</option>
+                <option value="Outros">Outros</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="excuse-status">Status de Eficiência dessa</label>
+              <select id="excuse-status" required>
+                <option value="" disabled selected>Selecione o status...</option>
+                <option value="Deu bom">Deu bom</option>
+                <option value="Deu ruim">Deu ruim</option>
+                <option value="Já tá manjada">Já tá manjada</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="excuse-text">A Desculpa em si</label>
+            <textarea id="excuse-text" rows="4" placeholder="Descreva a desculpa..." required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="btn-save" class="btn btn-primary">Salvar Desculpa</button>
+            <button type="button" id="btn-cancel" class="btn btn-secondary hidden">Cancelar Edição</button>
+          </div>
+        </form>
+      </section>
+      
+      <section class="card list-card">
+        <div class="list-header">
+          <h2>Seu Repertório (<span id="total-count">0</span>)</h2>
+          <div class="filter-wrapper">
+            <select id="filter-category" class="select-filter">
+              <option value="todas">Todas as categorias</option>
+              <option value="Família">Família</option>
+              <option value="Amigos">Amigos</option>
+              <option value="Festa">Festa / Rolê</option>
+              <option value="Trabalho">Trabalho / Estudo</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="excuses-container" class="excuses-grid">
+          </div>
+
+        <div id="empty-state" class="empty-state hidden">
+          <p>Nenhuma desculpa cadastrada ainda</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="Main.js"></script>
+</body>
+</html>
